@@ -1,0 +1,208 @@
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", "SF Pro Display", "Segoe UI", system-ui, sans-serif;
+    background: #f7f7f7;
+    color: #111;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    color: #111;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 2.4em;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+/* Tabs */
+.year-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.tab-btn {
+    padding: 12px 30px;
+    background: transparent;
+    border: 2px solid #111;
+    color: #111;
+    font-size: 1.05em;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: all 0.25s ease;
+}
+
+.tab-btn:hover {
+    background: #f0f0f0;
+}
+
+.tab-btn.active {
+    background: #111;
+    color: #fff;
+}
+
+/* Content */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Cards */
+.goals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.goal-category {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: transform 0.25s ease;
+}
+
+.goal-category:hover {
+    transform: translateY(-4px);
+}
+
+.category-title {
+    font-size: 1.4em;
+    color: #111;
+    margin-bottom: 18px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e6e6e6;
+}
+
+/* Goals */
+.goal-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 14px;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+}
+
+.goal-item:hover {
+    background: #fafafa;
+}
+
+.checkbox {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    border: 2px solid #bbb;
+    border-radius: 6px;
+    margin-right: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+}
+
+.checkbox.checked {
+    background: #b8ccff; /* baby blue */
+    border-color: #b8ccff;
+}
+
+.checkbox.checked::after {
+    content: '✓';
+    color: #111;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.goal-text {
+    flex: 1;
+    font-size: 1.02em;
+    line-height: 1.5;
+    color: #222;
+}
+
+.goal-text.completed {
+    text-decoration: line-through;
+    color: #aaa;
+}
+
+/* Progress */
+.progress-section {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 25px;
+    margin-top: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.progress-title {
+    font-size: 1.2em;
+    color: #111;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 28px;
+    background: #ededed;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        #b8ccff,   /* baby blue */
+        #e2d9ff    /* baby lilac */
+    );
+    transition: width 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #111;
+    font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    .goals-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tab-btn {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+}
